@@ -1,0 +1,184 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', sans-serif; }
+
+body {
+    background-color: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.center-wrapper {
+    width: 100%;
+    max-width: 600px;
+    background-color: #ffffff;
+    border-radius: 30px;
+    padding: 40px 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+    text-align: center; /* 내부 요소들 중앙 정렬 */
+}
+
+.main-hero h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #1a1a1a;
+}
+
+.search-section { margin-bottom: 35px; }
+
+.search-bar-container {
+    display: flex;
+    background-color: #f1f3f7;
+    border-radius: 15px;
+    padding: 5px 15px;
+    align-items: center;
+}
+
+.search-bar-container input {
+    flex: 1;
+    border: none;
+    background: none;
+    padding: 15px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-bar-container button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #4a90e2;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #f1f3f7;
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+
+.card-icon { font-size: 2rem; color: #4a90e2; margin-bottom: 10px; }
+
+.card h3 { font-size: 0.95rem; color: #444; }
+
+.empty-card { background-color: #fafbfc; border: 1px dashed #ddd; cursor: default; }
+
+/* 결과 페이지 스타일 */
+.results-page-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+#back-to-main-btn { border: none; background: none; color: #4a90e2; font-weight: bold; cursor: pointer; }
+.book-item-card { text-align: left; background: #f8fafc; border-radius: 15px; padding: 20px; margin-bottom: 10px; border: 1px solid #edf2f7; }
+.book-title { font-weight: bold; margin-bottom: 5px; }
+.book-info { font-size: 0.85rem; color: #666; margin-bottom: 10px; }
+.station-tag { background: #e1effe; color: #1e429f; padding: 5px 10px; border-radius: 8px; font-size: 0.8rem; font-weight: bold; }
+/* 뒤로가기 버튼 디자인 통일 */
+.back-btn {
+    border: none;
+    background: #f1f7ff;
+    color: #4a90e2;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 12px;
+    transition: 0.2s;
+}
+
+.back-btn:hover {
+    background: #4a90e2;
+    color: white;
+}
+
+/* 지도 페이지 상단 여백 */
+#map-page {
+    text-align: left;
+}
+/* 🌟 카카오 지도 커스텀 말풍선 디자인 */
+.custom-infowindow {
+    padding: 10px;
+    font-family: 'Pretendard', sans-serif;
+    min-width: 200px;
+}
+
+.info-title {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #1e293b;
+    border-bottom: 2px solid #4a90e2;
+    padding-bottom: 5px;
+    margin-bottom: 8px;
+}
+
+.info-body {
+    font-size: 0.8rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+.info-link {
+    display: inline-block;
+    margin-top: 8px;
+    color: #fff;
+    background-color: #4a90e2;
+    padding: 4px 8px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.75rem;
+    transition: background 0.2s;
+}
+
+.info-link:hover {
+    background-color: #2563eb;
+}
+/* 🌟 카카오 지도 커스텀 말풍선 디자인 */
+.custom-infowindow {
+    padding: 10px;
+    font-family: 'Pretendard', sans-serif;
+    min-width: 200px;
+}
+
+.info-title {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #1e293b;
+    border-bottom: 2px solid #4a90e2;
+    padding-bottom: 5px;
+    margin-bottom: 8px;
+}
+
+.info-body {
+    font-size: 0.8rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+.info-link {
+    display: inline-block;
+    margin-top: 8px;
+    color: #fff;
+    background-color: #4a90e2;
+    padding: 4px 8px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.75rem;
+    transition: background 0.2s;
+}
+
+.info-link:hover {
+    background-color: #2563eb;
+}
