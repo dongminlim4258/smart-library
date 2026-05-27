@@ -182,3 +182,59 @@ body {
 .info-link:hover {
     background-color: #2563eb;
 }
+/* 🌟 SMILE ONE 상단 헤더 바 레이아웃 스타일 */
+.smile-header-bar {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 15px 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-logo .emoji {
+    font-size: 1.5rem;
+}
+
+.brand-logo .text {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #1e293b;
+    letter-spacing: -0.5px;
+}
+
+/* 헤더 고정으로 인한 바디 상단 여백 보정 */
+body {
+    padding-top: 80px !important;
+}
+/* 🌟 [도서관 지도] 카드를 다른 카드와 통일된 하얀색 톤으로 매칭 및 2칸 확장 */
+.card-wide {
+    grid-column: span 2; /* 가로 2칸 차지 */
+    background: #ffffff !important; /* 깔끔한 화이트 배경 */
+    border: 1px solid #e2e8f0 !important; /* 기존 카드들과 동일한 테두리 */
+}
+
+/* 지도 카드 전용 아이콘 색상 (기존 아이콘들과 톤 맞춤) */
+.card-wide .card-icon {
+    color: #4a90e2 !important; /* 깔끔한 블루 포인트 */
+}
+
+.card-wide h3 {
+    color: #333333 !important; /* 차분한 흑색 글자 */
+}
+
+/* 마우스 올렸을 때(Hover) 부드러운 애니메이션 효과 통일 */
+.card-wide:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}

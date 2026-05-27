@@ -1,6 +1,6 @@
 let globalLibraryBooks = [];
 let kakaoMap = null; 
-let currentInfoWindow = null; // 열려있는 말풍선을 추적하기 위한 변수
+let currentInfoWindow = null; 
 
 window.onload = function() {
     initDatabase();
@@ -8,7 +8,7 @@ window.onload = function() {
     setupNavigation(); 
 };
 
-// 1. 데이터 통합 엔진
+// 1. 도서 데이터 로드 프로세서
 function initDatabase() {
     const dataSources = [
         { name: '불광역', raw: typeof bulgwangCSV !== 'undefined' ? bulgwangCSV : "" },
@@ -51,15 +51,16 @@ function initDatabase() {
         statusDiv.id = 'db-status-tag';
         statusDiv.style.cssText = "margin-top:10px; font-size:0.9rem; color:#2ed573; font-weight:bold;";
         if (globalLibraryBooks.length > 0) {
-            statusDiv.innerHTML = ` `;
+            statusDiv.innerHTML = ``;
         } else {
-            statusDiv.innerHTML = `🔴 데이터 로드 오류: data_xx.js 파일을 확인하세요.`;
+            statusDiv.innerHTML = `🔴 데이터 동기화 실패. 파일을 점검하세요.`;
             statusDiv.style.color = "#ff4757";
         }
         hero.appendChild(statusDiv);
     }
 }
 
+// 2. 내비게이션 라우팅 컨트롤러
 function setupNavigation() {
     const goToMapBtn = document.getElementById('go-to-map-btn');
     const backButtons = document.querySelectorAll('.back-btn');
@@ -81,11 +82,11 @@ function setupNavigation() {
     });
 }
 
-// 2. 🗺️ 서울 전체 스마트도서관 데이터 마킹 및 인포윈도우 구현
+// 3. 🗺️ 84개 스마트도서관 및 길찾기 통합 맵 모델링
 function initKakaoMap() {
     const container = document.getElementById('library-map-container');
     const options = {
-        center: new kakao.maps.LatLng(37.5665, 126.9780), // 서울 중심
+        center: new kakao.maps.LatLng(37.5665, 126.9780), 
         level: 7
     };
 
@@ -93,7 +94,6 @@ function initKakaoMap() {
         kakaoMap = new kakao.maps.Map(container, options);
     }
 
-    // 동민님이 보내주신 CSV 파일의 83개 전체 데이터 반영
     const locations = [
   { line: "3호선", name: "수서", count: 1, operator: "강남구청", lat: 37.487507, lng: 127.101324 },
   { line: "7호선", name: "청담", count: 1, operator: "강남구청", lat: 37.519097, lng: 127.051851 },
@@ -187,7 +187,6 @@ function initKakaoMap() {
             map: kakaoMap
         });
 
-        // 🌟 동민님 사진 속 구성 복사: 카카오맵 커스텀 디자인을 투영한 인포윈도우 레이아웃
         const content = `
             <div class="custom-infowindow">
                 <div class="info-title">${loc.name}역 스마트도서관</div>
@@ -207,7 +206,6 @@ function initKakaoMap() {
             removable: true
         });
 
-        // 마커 클릭 시 기존 열려있던 창은 닫고 새 창 열기
         kakao.maps.event.addListener(marker, 'click', function() {
             if (currentInfoWindow) {
                 currentInfoWindow.close();
@@ -220,7 +218,7 @@ function initKakaoMap() {
     setTimeout(() => { kakaoMap.relayout(); }, 150);
 }
 
-// 3. 검색 관련 함수 (기존과 동일)
+// 4. 검색 모듈 디비전
 function setupSearch() {
     const searchInput = document.getElementById('book-search');
     const searchBtn = document.getElementById('search-btn');

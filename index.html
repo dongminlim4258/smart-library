@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>스마트도서관 네비게이터</title>
+    <title>SMILE ONE - 스마트도서관 네비게이터</title>
     <link rel="stylesheet" href="style_dashboard.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=35b5b863774f0cef13d397c765007386"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=93be5cc187d70c4f82635955a02be098"></script>
 </head>
 <body>
+
+    <header class="smile-header-bar">
+        <div class="brand-logo">
+            <span class="emoji">😊</span>
+            <span class="text">SMILE ONE</span>
+        </div>
+    </header>
 
     <div class="center-wrapper">
         <div id="main-dashboard-page">
             <header class="main-hero">
-                <h2>스마트도서관에서 책을 찾고계신가요?</h2>
+                <h2>스마트 도서관에서 책을 찾고 계신가요?</h2>
             </header>
 
             <section class="search-section">
@@ -25,14 +32,11 @@
             </section>
 
             <main class="dashboard-grid">
-                <div class="card menu-card" id="go-to-map-btn">
+                <div class="card menu-card card-wide" id="go-to-map-btn">
                     <div class="card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
                     <h3>도서관 지도</h3>
                 </div>
-                <div class="card menu-card" onclick="alert('준비 중인 기능입니다.')">
-                    <div class="card-icon"><i class="fa-solid fa-route"></i></div>
-                    <h3>길찾기</h3>
-                </div>
+                
                 <div class="card menu-card" onclick="alert('준비 중인 기능입니다.')">
                     <div class="card-icon"><i class="fa-solid fa-book-open-reader"></i></div>
                     <h3>사용방법</h3>
@@ -41,10 +45,15 @@
                     <div class="card-icon"><i class="fa-solid fa-fire"></i></div>
                     <h3>인기도서</h3>
                 </div>
-                <div class="card empty-card"></div>
-                <div class="card empty-card"></div>
-                <div class="card empty-card"></div>
-                <div class="card empty-card"></div>
+
+                <div class="card menu-card" onclick="alert('준비 중인 기능입니다.')">
+                    <div class="card-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+                    <h3>게시판</h3>
+                </div>
+                <div class="card menu-card" onclick="alert('준비 중인 기능입니다.')">
+                    <div class="card-icon"><i class="fa-solid fa-user-gear"></i></div>
+                    <h3>나의 이용 현황</h3>
+                </div>
             </main>
         </div>
 
@@ -59,10 +68,10 @@
         <div id="map-page" style="display: none;">
             <header class="results-page-header">
                 <button type="button" class="back-btn"><i class="fa-solid fa-arrow-left"></i> 뒤로가기</button>
-                <h2>스마트도서관 위치 지도</h2>
+                <h2>스마트도서관 위치 및 길찾기 통합 지도</h2>
             </header>
-            <div id="library-map-container" style="width:100%; height:450px; border-radius:20px; border:1px solid #eee;"></div>
-            <p style="margin-top:15px; font-size:0.85rem; color:#666;">📍 마커를 클릭하면 상세 위치를 확인할 수 있습니다.</p>
+            <div id="library-map-container" style="width:100%; height:650px; border-radius:20px; border:1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.05);"></div>
+            <p style="margin-top:15px; font-size:0.85rem; color:#64748b; text-align: center;">📍 마커를 클릭하면 상세 정보 조회 및 카카오맵 길찾기로 다이렉트 연결됩니다.</p>
         </div>
     </div>
 
