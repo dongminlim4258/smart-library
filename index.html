@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style_dashboard.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=35b5b863774f0cef13d397c765007386"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=93be5cc187d70c4f82635955a02be098"></script>
 </head>
 <body>
 
@@ -21,7 +21,7 @@
     <div class="center-wrapper">
         <div id="main-dashboard-page">
             <header class="main-hero">
-                <h2>스마트 도서관에서 책을 찾고 계신가요?</h2>
+                <h2>가장 가까운 스마트도서관을 찾고 계신가요?</h2>
             </header>
 
             <section class="search-section">
@@ -37,20 +37,20 @@
                     <h3>도서관 지도</h3>
                 </div>
                 
-                <div class="card menu-card" onclick="alert('준비 중인 기능입니다.')">
+                <div class="card menu-card" id="go-to-usage-btn">
                     <div class="card-icon"><i class="fa-solid fa-book-open-reader"></i></div>
                     <h3>사용방법</h3>
                 </div>
-                <div class="card menu-card" onclick="alert('준비 중인 기능입니다.')">
+                <div class="card menu-card" id="go-to-hot-btn">
                     <div class="card-icon"><i class="fa-solid fa-fire"></i></div>
                     <h3>인기도서</h3>
                 </div>
 
-                <div class="card menu-card" onclick="alert('준비 중인 기능입니다.')">
+                <div class="card menu-card" id="go-to-board-btn">
                     <div class="card-icon"><i class="fa-solid fa-clipboard-list"></i></div>
                     <h3>게시판</h3>
                 </div>
-                <div class="card menu-card" onclick="alert('준비 중인 기능입니다.')">
+                <div class="card menu-card" id="go-to-user-btn">
                     <div class="card-icon"><i class="fa-solid fa-user-gear"></i></div>
                     <h3>나의 이용 현황</h3>
                 </div>
@@ -72,6 +72,99 @@
             </header>
             <div id="library-map-container" style="width:100%; height:650px; border-radius:20px; border:1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.05);"></div>
             <p style="margin-top:15px; font-size:0.85rem; color:#64748b; text-align: center;">📍 마커를 클릭하면 상세 정보 조회 및 카카오맵 길찾기로 다이렉트 연결됩니다.</p>
+        </div>
+
+        <div id="usage-page" style="display: none;">
+            <header class="results-page-header">
+                <button type="button" class="back-btn"><i class="fa-solid fa-arrow-left"></i> 뒤로가기</button>
+                <h2>스마트도서관 이용 안내</h2>
+            </header>
+            <div class="usage-container" style="display: flex; flex-direction: column; gap: 30px; margin-top: 20px; text-align: left;">
+                <div style="background: #fff; padding: 25px; border-radius: 20px; border: 1px solid #e2e8f0;">
+                    <h3 style="color: #2563eb; margin-bottom: 15px; font-size: 1.2rem;"><i class="fa-solid fa-file-import"></i> 도서 대출 방법</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                        <div style="background: #f8fafc; padding: 15px; border-radius: 12px; text-align: center;">
+                            <span style="font-weight: bold; color: #3b82f6; display:block; margin-bottom:5px;">STEP 1</span>
+                            <p style="font-size:0.9rem; margin:0; color:#334155; line-height: 1.5;">[대출] 선택 후<br><strong>회원증(바코드)</strong> 인식</p>
+                        </div>
+                        <div style="background: #f8fafc; padding: 15px; border-radius: 12px; text-align: center;">
+                            <span style="font-weight: bold; color: #3b82f6; display:block; margin-bottom:5px;">STEP 2</span>
+                            <p style="font-size:0.9rem; margin:0; color:#334155; line-height: 1.5;">보관함 문이 열리면<br><strong>도서 꺼내기</strong></p>
+                        </div>
+                        <div style="background: #f8fafc; padding: 15px; border-radius: 12px; text-align: center;">
+                            <span style="font-weight: bold; color: #3b82f6; display:block; margin-bottom:5px;">STEP 3</span>
+                            <p style="font-size:0.9rem; margin:0; color:#334155; line-height: 1.5;">보관함 문을 닫고<br><strong>대출 명세서</strong> 수령</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="background: #fff; padding: 25px; border-radius: 20px; border: 1px solid #e2e8f0;">
+                    <h3 style="color: #10b981; margin-bottom: 15px; font-size: 1.2rem;"><i class="fa-solid fa-file-export"></i> 도서 반납 방법</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                        <div style="background: #f8fafc; padding: 15px; border-radius: 12px; text-align: center;">
+                            <span style="font-weight: bold; color: #10b981; display:block; margin-bottom:5px;">STEP 1</span>
+                            <p style="font-size:0.9rem; margin:0; color:#334155; line-height: 1.5;">화면에서<br><strong>[반납] 버튼</strong> 선택</p>
+                        </div>
+                        <div style="background: #f8fafc; padding: 15px; border-radius: 12px; text-align: center;">
+                            <span style="font-weight: bold; color: #10b981; display:block; margin-bottom:5px;">STEP 2</span>
+                            <p style="font-size:0.9rem; margin:0; color:#334155; line-height: 1.5;">인식 장치에 도서 뒷면<br><strong>바코드 자국</strong> 태그</p>
+                        </div>
+                        <div style="background: #f8fafc; padding: 15px; border-radius: 12px; text-align: center;">
+                            <span style="font-weight: bold; color: #10b981; display:block; margin-bottom:5px;">STEP 3</span>
+                            <p style="font-size:0.9rem; margin:0; color:#334155; line-height: 1.5;">지정된 보관함이 열리면<br>도서를 넣고 <strong>문 닫기</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div style="padding: 20px; border-radius: 20px; border: 1px dashed #cbd5e1; background: #f8fafc;">
+                    <h4 style="margin: 0 0 10px 0; color: #475569; font-size: 1rem;"><i class="fa-solid fa-circle-info"></i> 이용 시 유의사항</h4>
+                    <ul style="margin: 0; padding-left: 20px; font-size: 0.85rem; color: #64748b; line-height: 1.8;">
+                        <li>스마트도서관에서 대출한 도서는 <strong>해당 스마트도서관 기기</strong>에서만 반납이 가능합니다. (교차 반납 불가)</li>
+                        <li>대출 기간은 타 공공도서관 규정과 동일하게 적용되며, 연체 시 회원 자격이 일시 정지될 수 있습니다.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="hot-books-page" style="display: none;">
+            <header class="results-page-header">
+                <button type="button" class="back-btn"><i class="fa-solid fa-arrow-left"></i> 뒤로가기</button>
+                <h2>실시간 인기도서 TOP 10</h2>
+            </header>
+            <main id="hot-books-list" class="results-page-content" style="margin-top: 20px; display: flex; flex-direction: column; gap: 12px; text-align: left;"></main>
+        </div>
+
+        <div id="board-page" style="display: none;">
+            <header class="results-page-header">
+                <button type="button" class="back-btn"><i class="fa-solid fa-arrow-left"></i> 뒤로가기</button>
+                <h2>SMILE ONE 통합 게시판</h2>
+            </header>
+            
+            <div class="board-tabs" style="display: flex; background: #e2e8f0; padding: 6px; border-radius: 12px; margin-top: 25px;">
+                <button type="button" id="tab-notice-btn" class="tab-btn active" style="flex: 1; padding: 12px; border: none; border-radius: 8px; font-weight: bold; font-size: 0.95rem; cursor: pointer; transition: 0.2s;">공지사항</button>
+                <button type="button" id="tab-qna-btn" class="tab-btn" style="flex: 1; padding: 12px; border: none; border-radius: 8px; font-weight: bold; font-size: 0.95rem; cursor: pointer; transition: 0.2s;">Q&A 피드백</button>
+            </div>
+
+            <div id="board-content-area" style="margin-top: 20px; text-align: left;"></div>
+        </div>
+
+        <div id="user-status-page" style="display: none;">
+            <header class="results-page-header">
+                <button type="button" class="back-btn"><i class="fa-solid fa-arrow-left"></i> 뒤로가기</button>
+                <h2>나의 도서 이용 현황</h2>
+            </header>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 25px;">
+                <div style="background: #eff6ff; border: 1px solid #bfdbfe; padding: 15px; border-radius: 15px; text-align: center;">
+                    <span style="font-size:0.85rem; color:#1e40af; font-weight:bold;">대출 중인 도서</span>
+                    <div style="font-size: 1.8rem; font-weight: 800; color: #1d4ed8; margin-top: 5px;">4 <span style="font-size:1rem; font-weight:normal;">권</span></div>
+                </div>
+                <div style="background: #fef2f2; border: 1px solid #fca5a5; padding: 15px; border-radius: 15px; text-align: center;">
+                    <span style="font-size:0.85rem; color:#991b1b; font-weight:bold;">연체된 도서</span>
+                    <div style="font-size: 1.8rem; font-weight: 800; color: #b91c1c; margin-top: 5px;">1 <span style="font-size:1rem; font-weight:normal;">권</span></div>
+                </div>
+            </div>
+
+            <h3 style="text-align:left; font-size:1.1rem; color:#1e293b; margin: 30px 0 15px 0;"><i class="fa-solid fa-list-check"></i> 실시간 나의 대출 도서 명세 (총 5권)</h3>
+            <main id="user-rent-list" class="results-page-content" style="display: flex; flex-direction: column; gap: 12px; text-align: left;"></main>
         </div>
     </div>
 

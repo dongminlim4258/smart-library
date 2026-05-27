@@ -238,3 +238,14 @@ body {
     transform: translateY(-4px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
+/* 🌟 게시판 활성화 탭 디자인 보강 */
+.tab-btn {
+    background: transparent;
+    color: #64748b;
+}
+
+.tab-btn.active {
+    background: #ffffff !important;
+    color: #4a90e2 !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
