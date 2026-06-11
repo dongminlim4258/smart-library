@@ -213,7 +213,6 @@ function initKakaoMap() {
                 <div class="info-body">
                     <strong>호선:</strong> ${loc.line}<br>
                     <strong>설치대수:</strong> ${loc.count}대<br>
-                    <strong>운영주체:</strong> ${loc.operator}<br>
                     <a href="https://map.kakao.com/link/to/${loc.name}역 스마트도서관,${loc.lat},${loc.lng}" target="_blank" class="info-link">
                         <i class="fa-solid fa-route"></i> 길찾기 연결
                     </a>
@@ -306,7 +305,7 @@ function renderUserStatus() {
         { title: "트렌드 코리아 2026", author: "김난도", location: "연신내역 스마트도서관", dDay: 11, isOverdue: false },
         { title: "쇼펜하우어 아포리즘", author: "아르투어 쇼펜하우어", location: "합정역 스마트도서관", dDay: 2, isOverdue: false },
         { title: "작별하지 않는다", author: "한강", location: "시청역 스마트도서관", dDay: 7, isOverdue: false },
-        { title: "문헌정보학 개론", author: "한국도서관협회", location: "역촌역 스마트도서관", dDay: 4, isOverdue: true } // 연체 조건 부여
+        { title: "검색어 : 삶의 의미", author: "박상우", location: "역촌역 스마트도서관", dDay: 4, isOverdue: true } // 연체 조건 부여
     ];
 
     rentListContainer.innerHTML = "";
